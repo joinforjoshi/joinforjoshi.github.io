@@ -14,8 +14,7 @@
             background-color: #f4f4f4;
         }
         header {
-            background-color: #333;
-            color: white;
+            background-image: radial-gradient(#ffffff, #ededed, #999999, #333);
             padding: 1em 0;
             text-align: center;
         }
@@ -44,10 +43,70 @@
             color: white;
         }
     </style>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            padding: 1em 0;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .card {
+            min-width: 300px;
+            max-width: 300px;
+            margin: 0 1em;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+        .card iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+        .card h3 {
+            margin: 0;
+            padding: 1em;
+            background-color: #444;
+            color: white;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin: 1em 0;
+        }
+        .controls button {
+            padding: 0.5em 1em;
+            margin: 0 0.5em;
+            border: none;
+            border-radius: 4px;
+            background-color: #444;
+            color: white;
+            cursor: pointer;
+        }
+        .controls button:hover {
+            background-color: #555;
+        }
+    </style>
+	
 </head>
 <body>
     <header>
-        <h1>Hemant Kumar Joshi</h1>
 	<img src="https://raw.githubusercontent.com/joinforjoshi/joinforjoshi.github.io/main/Profile/My_Self_Profile/Gallery_Sources/signature-16ED3C82FE1A930B0D7413467FCE790C2.gif">
     </header>
     <nav>
@@ -130,22 +189,66 @@ Good Bye 👋👋
     </section>
     <section id="contact">
         <h2>Contact</h2>
+	     <a href="https://linktr.ee/iam_joshi">Let's Connect👍</a>
         <p>Provide your contact information here. This can include your email address, phone number, or social media links.</p>
     </section>
     <section id="blog">
         <h2>Blog</h2>
-	
-	<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>	
-<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="joinforjoshi" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/joinforjoshi?trk=profile-badge">Hemant Kumar Joshi</a></div>
-<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="joinforjoshi" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/joinforjoshi?trk=profile-badge">Hemant Kumar Joshi</a></div>
-<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript">
-	</script>
-        <p>Write or link to your blog posts here. Share your thoughts, ideas, or anything else you find interesting.</p>
-    </section>
+
+	    
+<div class="carousel-container">
+    <div class="carousel" id="carousel">
+        <div class="card">
+            <h3>Website 1</h3>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7207000347310002176" height="697" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+        </div>
+        <div class="card">
+            <h3>Website 2</h3>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7162184761149521920" height="697" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+        </div>
+        <div class="card">
+            <h3>Website 3</h3>
+            <iframe src="https://example.com"></iframe>
+        </div>
+        <div class="card">
+            <h3>Website 4</h3>
+            <iframe src="https://example.com"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="controls">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+</div>
+
+<script>
+    const carousel = document.getElementById('carousel');
+    let offset = 0;
+
+    function prevSlide() {
+        if (offset > 0) {
+            offset--;
+            updateCarousel();
+        }
+    }
+
+    function nextSlide() {
+        if (offset < carousel.children.length - 1) {
+            offset++;
+            updateCarousel();
+        }
+    }
+
+    function updateCarousel() {
+        const width = carousel.children[0].clientWidth;
+        carousel.style.transform = `translateX(${-offset * (width + 32)}px)`; // 32px is the margin between cards
+    }
+</script>
+    
+   </section>
     <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <p>&copy; This Website is made by ChatGPT through Prompting.</p>
     </footer>
 </body>
 </html>
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
