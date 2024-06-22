@@ -45,63 +45,144 @@
     </style>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .carousel-container {
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #333;
-            padding: 1em 0;
-        }
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        .card {
-            min-width: 300px;
-            max-width: 300px;
-            margin: 0 1em;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-            text-align: center;
-        }
-        .card iframe {
-            width: 100%;
-            height: 200px;
-            border: none;
-        }
-        .card h3 {
-            margin: 0;
-            padding: 1em;
-            background-color: #444;
-            color: white;
-        }
-        .controls {
-            display: flex;
-            justify-content: center;
-            margin: 1em 0;
-        }
-        .controls button {
-            padding: 0.5em 1em;
-            margin: 0 0.5em;
-            border: none;
-            border-radius: 4px;
-            background-color: #444;
-            color: white;
-            cursor: pointer;
-        }
-        .controls button:hover {
-            background-color: #555;
-        }
+       :root {
+  --red: #ef233c;
+  --darkred: #c00424;
+  --platinum: #e5e5e5;
+  --black: #2b2d42;
+  --white: #fff;
+  --thumb: #edf2f4;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font: 16px / 24px "Rubik", sans-serif;
+  color: var(--black);
+  background: var(--platinum);
+  margin: 50px 0;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 1em;
+}
+
+.cards {
+  display: flex;
+  padding: 25px 0px;
+  list-style: none;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  scroll-snap-align: start;
+  transition: all 0.2s;
+}
+
+.card:not(:last-child) {
+  margin-right: 10px;
+}
+
+.card:hover {
+  color: var(--white);
+  background: var(--black);
+}
+
+.card .card-title {
+  font-size: 20px;
+}
+
+.card .card-content {
+  margin: 20px 0;
+  max-width: 85%;
+}
+
+.card .card-link-wrapper {
+  margin-top: auto;
+}
+
+.card .card-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: var(--red);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.card:hover .card-link {
+  background: var(--darkred);
+}
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: var(--black);
+}
+
+.cards::-webkit-scrollbar-track {
+  background: var(--thumb);
+    background-image: radial-gradient(#ffffff, #ededed, #999999, #333);
+
+}
+
+@media (min-width: 500px) {
+  .card {
+    flex-basis: calc(50% - 10px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 700px) {
+  .card {
+    flex-basis: calc(calc(100% / 3) - 20px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .card {
+    flex-basis: calc(25% - 30px);
+  }
+
+  .card:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+
     </style>
 	
 </head>
@@ -186,6 +267,146 @@ Good Bye 👋👋
     <section id="projects">
         <h2>Projects</h2>
         <p>Detail some of your projects here. You can include links, descriptions, and any other pertinent details.</p>
+        
+        	    
+<div class="container">
+  <ul class="cards">
+    <li class="card">
+      <div>
+        <h3 class="card-title">Post 1</h3>
+        <div class="card-content">
+          <p> <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7055142872823545856" height="544" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Post 2</h3>
+        <div class="card-content">
+          <p><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7055143629660598272" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 3</h3>
+        <div class="card-content">
+          <p>Phasellus ultrices lorem vel bibendum ultricies. In hendrerit nulla a ante dapibus pulvinar eu eget quam.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 4</h3>
+        <div class="card-content">
+          <p>Aenean posuere mauris quam, pellentesque auctor mi bibendum nec. Sed scelerisque lacus nisi, quis auctor lorem ornare vel.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 5</h3>
+        <div class="card-content">
+          <p>Vestibulum pharetra fringilla felis sit amet tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras et arcu sit amet est consequat feugiat. Nam ut sapien pulvinar.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 6</h3>
+        <div class="card-content">
+          <p>Donec ut tincidunt nisl. Vivamus eget eros id elit feugiat mollis. Nam sed sem quis libero finibus tempor.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 7</h3>
+        <div class="card-content">
+          <p>Aliquam eget nisl auctor, sollicitudin ipsum at, dignissim ligula. Donec tincidunt in elit et pellentesque. Integer posuere metus ac massa mollis euismod.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 8</h3>
+        <div class="card-content">
+          <p> Vivamus eget eros id elit feugiat mollis. Nam sed sem quis libero finibus tempor.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 9</h3>
+        <div class="card-content">
+          <p>Duis id congue turpis. Donec sodales porta felis, nec ultricies ante. Nam placerat vitae metus sit amet tempor. Aliquam ac dictum est.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 10</h3>
+        <div class="card-content">
+          <p>Pellentesque eget eros eget justo efficitur fermentum.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 11</h3>
+        <div class="card-content">
+          <p>Phasellus posuere nec nibh ut tincidunt. Aenean mollis turpis non eros posuere, at luctus leo hendrerit. Integer non libero sapien.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 12</h3>
+        <div class="card-content">
+          <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ornare metus ac lectus scelerisque volutpat.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+        
     </section>
     <section id="contact">
         <h2>Contact</h2>
@@ -196,55 +417,143 @@ Good Bye 👋👋
         <h2>Blog</h2>
 
 	    
-<div class="carousel-container">
-    <div class="carousel" id="carousel">
-        <div class="card">
-            <h3>Website 1</h3>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7207000347310002176" height="697" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+<div class="container">
+  <ul class="cards">
+    <li class="card">
+      <div>
+        <h3 class="card-title">Post 1</h3>
+        <div class="card-content">
+          <p> <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7055142872823545856" height="544" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></p>
         </div>
-        <div class="card">
-            <h3>Website 2</h3>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7162184761149521920" height="697" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Post 2</h3>
+        <div class="card-content">
+          <p><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7055143629660598272" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></p>
         </div>
-        <div class="card">
-            <h3>Website 3</h3>
-            <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Post 3</h3>
+        <div class="card-content">
+          <p><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7055143863476248576" height="523" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></p>
         </div>
-        <div class="card">
-            <h3>Website 4</h3>
-            <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Post 4</h3>
+        <div class="card-content">
+          <p><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7055569603665506304" height="649" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></p>
         </div>
-    </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 5</h3>
+        <div class="card-content">
+          <p>Vestibulum pharetra fringilla felis sit amet tempor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras et arcu sit amet est consequat feugiat. Nam ut sapien pulvinar.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 6</h3>
+        <div class="card-content">
+          <p>Donec ut tincidunt nisl. Vivamus eget eros id elit feugiat mollis. Nam sed sem quis libero finibus tempor.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 7</h3>
+        <div class="card-content">
+          <p>Aliquam eget nisl auctor, sollicitudin ipsum at, dignissim ligula. Donec tincidunt in elit et pellentesque. Integer posuere metus ac massa mollis euismod.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 8</h3>
+        <div class="card-content">
+          <p> Vivamus eget eros id elit feugiat mollis. Nam sed sem quis libero finibus tempor.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 9</h3>
+        <div class="card-content">
+          <p>Duis id congue turpis. Donec sodales porta felis, nec ultricies ante. Nam placerat vitae metus sit amet tempor. Aliquam ac dictum est.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 10</h3>
+        <div class="card-content">
+          <p>Pellentesque eget eros eget justo efficitur fermentum.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 11</h3>
+        <div class="card-content">
+          <p>Phasellus posuere nec nibh ut tincidunt. Aenean mollis turpis non eros posuere, at luctus leo hendrerit. Integer non libero sapien.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+    <li class="card">
+      <div>
+        <h3 class="card-title">Service 12</h3>
+        <div class="card-content">
+          <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ornare metus ac lectus scelerisque volutpat.</p>
+        </div>
+      </div>
+      <div class="card-link-wrapper">
+        <a href="" class="card-link">Learn More</a>
+      </div>
+    </li>
+  </ul>
 </div>
 
-<div class="controls">
-    <button onclick="prevSlide()">Previous</button>
-    <button onclick="nextSlide()">Next</button>
-</div>
-
-<script>
-    const carousel = document.getElementById('carousel');
-    let offset = 0;
-
-    function prevSlide() {
-        if (offset > 0) {
-            offset--;
-            updateCarousel();
-        }
-    }
-
-    function nextSlide() {
-        if (offset < carousel.children.length - 1) {
-            offset++;
-            updateCarousel();
-        }
-    }
-
-    function updateCarousel() {
-        const width = carousel.children[0].clientWidth;
-        carousel.style.transform = `translateX(${-offset * (width + 32)}px)`; // 32px is the margin between cards
-    }
-</script>
     
    </section>
     <footer>
